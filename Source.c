@@ -34,12 +34,12 @@ int main() {
 	HANDLE* handles_array[20];  // massive of threads
 
 	for (i = 0; i < 10; i++) {
-			if (handles_array[i] = CreateThread(NULL, // descriptor can't be inherited
-												 0,    //  default size of stack
-												 func1,	// the main func of the thread
-												 &var,  // parameter for func1
-												 NULL,  // flags of creation
-												 NULL)) {  // id of thread (here is NO ID for the thread)
+			if (handles_array[i] = CreateThread(NULL, 	// descriptor can't be inherited
+							    0,    	//  default size of stack
+							    func1,	// the main func of the thread
+							    &var,  	// parameter for func1
+							    NULL,  	// flags of creation
+							    NULL)) {    // id of thread (here is NO ID for the thread)
 				printf("\nhandles_array[%d]  has created successfully.", i);
 			}
 			else{
@@ -56,12 +56,12 @@ int main() {
 		}
 	}
 
-	WaitForMultipleObjects(20,				// count of threads
-						   handles_array,   // the array of handles
-						   TRUE,			// wait for ALL threads (not only for one)
-						   INFINITE);		// wait INFINITE time
+	WaitForMultipleObjects(20, 		// count of threads
+			       handles_array,   // the array of handles
+			       TRUE,	        // wait for ALL threads (not only for one)
+			       INFINITE);       // wait INFINITE time
 
-	printf("'\t\nNew var = %d", var);		// now var has changed
+	printf("'\t\nNew var = %d", var);	// now var has changed
 
 	return 0;
 }
